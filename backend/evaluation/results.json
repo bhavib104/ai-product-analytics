@@ -1,0 +1,965 @@
+{
+  "generated_at": "2026-10-31T16:34:18.028342+00:00",
+  "dataset": {
+    "seed": 42,
+    "start": "2026-05-04",
+    "end": "2026-10-30"
+  },
+  "reference_counts": {
+    "users": 5000,
+    "events": 73067,
+    "sessions": 15077,
+    "subscriptions": 570,
+    "assignments": 2356
+  },
+  "summary": {
+    "cases": 20,
+    "passed": 20,
+    "accuracy": 1.0,
+    "copilot_cases": 14,
+    "copilot_passed": 14,
+    "copilot_accuracy": 1.0,
+    "sql_cases": 6,
+    "sql_passed": 6,
+    "sql_accuracy": 1.0,
+    "tool_calls": 21,
+    "tool_success_rate": 1.0,
+    "citation_coverage": 1.0,
+    "median_latency_ms": 53.5,
+    "p95_latency_ms": 271,
+    "sql_safety": {
+      "total": 16,
+      "passed": 16,
+      "pass_rate": 1.0,
+      "unsafe_rejected": "12/12",
+      "safe_accepted": "4/4"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "overview_health",
+      "kind": "copilot",
+      "question": "What is the overall product health and KPI summary?",
+      "latency_ms": 195,
+      "tool_calls": 2,
+      "tool_successes": 2,
+      "citations": [
+        "get_overview",
+        "get_anomalies"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_overview",
+          "passed": true,
+          "detail": "['get_anomalies', 'get_overview']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_overview', 'success'), ('get_anomalies', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_overview', 'get_anomalies']"
+        },
+        {
+          "name": "total users",
+          "passed": true,
+          "detail": "5000"
+        },
+        {
+          "name": "active 30d",
+          "passed": true,
+          "detail": "3328"
+        },
+        {
+          "name": "MRR",
+          "passed": true,
+          "detail": "63538.6 vs 63538.6"
+        },
+        {
+          "name": "purchase conversion",
+          "passed": true,
+          "detail": "0.114 vs 0.114"
+        },
+        {
+          "name": "D7 retention",
+          "passed": true,
+          "detail": "0.131806 vs 0.131806"
+        },
+        {
+          "name": "answer contains total users",
+          "passed": true,
+          "detail": "5000 total users"
+        }
+      ]
+    },
+    {
+      "case_id": "total_users",
+      "kind": "copilot",
+      "question": "How many total users do we have?",
+      "latency_ms": 196,
+      "tool_calls": 2,
+      "tool_successes": 2,
+      "citations": [
+        "get_overview",
+        "get_anomalies"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_overview",
+          "passed": true,
+          "detail": "['get_anomalies', 'get_overview']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_overview', 'success'), ('get_anomalies', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_overview', 'get_anomalies']"
+        },
+        {
+          "name": "total users",
+          "passed": true,
+          "detail": "5000 vs 5000"
+        }
+      ]
+    },
+    {
+      "case_id": "registration_sep15",
+      "kind": "copilot",
+      "question": "How many users registered on September 15, 2026?",
+      "latency_ms": 46,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_metric_series"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_metric_series",
+          "passed": true,
+          "detail": "['get_metric_series']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_metric_series', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_metric_series']"
+        },
+        {
+          "name": "daily point returned",
+          "passed": true,
+          "detail": "1 points"
+        },
+        {
+          "name": "registration count",
+          "passed": true,
+          "detail": "{'date': '2026-09-15', 'value': 74.0} vs 74"
+        },
+        {
+          "name": "answer contains count",
+          "passed": true,
+          "detail": "74"
+        }
+      ]
+    },
+    {
+      "case_id": "checkout_outage",
+      "kind": "copilot",
+      "question": "Why did checkout conversion drop in August? Which device was worst?",
+      "latency_ms": 271,
+      "tool_calls": 4,
+      "tool_successes": 4,
+      "citations": [
+        "get_anomalies",
+        "get_metric_series",
+        "get_dimension_breakdown",
+        "get_funnel"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_anomalies",
+          "passed": true,
+          "detail": "['get_anomalies', 'get_dimension_breakdown', 'get_funnel', 'get_metric_series']"
+        },
+        {
+          "name": "tool get_dimension_breakdown",
+          "passed": true,
+          "detail": "['get_anomalies', 'get_dimension_breakdown', 'get_funnel', 'get_metric_series']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_anomalies', 'success'), ('get_metric_series', 'success'), ('get_dimension_breakdown', 'success'), ('get_funnel', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_anomalies', 'get_metric_series', 'get_dimension_breakdown', 'get_funnel']"
+        },
+        {
+          "name": "outage anomaly present",
+          "passed": true,
+          "detail": "{'anomaly_id': 'anom_weekly_checkout_conversion_rate_2026-08-10', 'metric_key': 'checkout_conversion_rate', 'period_start': Timestamp('2026-08-10 00:00:00'), 'granularity': 'weekly', 'observed_value': 0.0, 'baseline_value': 0.388802, 'deviation': -0.388802, 'robust_z': -4.1648, 'severity': 'medium', 'method': 'robust z-score (median/MAD), 8 prior full weeks', 'sample_size': 37, 'supporting_json': '{\"baseline_points\": [0.285714, 0.325581, 0.5, 0.435897, 0.410256, 0.513514, 0.326087, 0.367347], \"mad\": 0.062967, \"threshold\": 3.0, \"numerator\": 0, \"denominator\": 37}'}"
+        },
+        {
+          "name": "observed conversion is zero",
+          "passed": true,
+          "detail": "{'anomaly_id': 'anom_weekly_checkout_conversion_rate_2026-08-10', 'metric_key': 'checkout_conversion_rate', 'period_start': Timestamp('2026-08-10 00:00:00'), 'granularity': 'weekly', 'observed_value': 0.0, 'baseline_value': 0.388802, 'deviation': -0.388802, 'robust_z': -4.1648, 'severity': 'medium', 'method': 'robust z-score (median/MAD), 8 prior full weeks', 'sample_size': 37, 'supporting_json': '{\"baseline_points\": [0.285714, 0.325581, 0.5, 0.435897, 0.410256, 0.513514, 0.326087, 0.367347], \"mad\": 0.062967, \"threshold\": 3.0, \"numerator\": 0, \"denominator\": 37}'}"
+        },
+        {
+          "name": "device breakdown returned",
+          "passed": true,
+          "detail": "3 devices"
+        },
+        {
+          "name": "lowest device matches raw",
+          "passed": true,
+          "detail": "{'dimension_value': 'android', 'checkouts': 77, 'conversions': 21, 'value': 0.272727} vs android"
+        },
+        {
+          "name": "answer names checkout metric",
+          "passed": true,
+          "detail": "checkout_conversion_rate"
+        }
+      ]
+    },
+    {
+      "case_id": "checkout_by_device",
+      "kind": "copilot",
+      "question": "What is checkout conversion by device in August?",
+      "latency_ms": 74,
+      "tool_calls": 2,
+      "tool_successes": 2,
+      "citations": [
+        "get_metric_series",
+        "get_dimension_breakdown"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_dimension_breakdown",
+          "passed": true,
+          "detail": "['get_dimension_breakdown', 'get_metric_series']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_metric_series', 'success'), ('get_dimension_breakdown', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_metric_series', 'get_dimension_breakdown']"
+        },
+        {
+          "name": "all devices returned",
+          "passed": true,
+          "detail": "['android', 'ios', 'web'] vs ['android', 'ios', 'web']"
+        },
+        {
+          "name": "android conversion",
+          "passed": true,
+          "detail": "0.272727 vs 0.2727"
+        },
+        {
+          "name": "ios conversion",
+          "passed": true,
+          "detail": "0.326316 vs 0.3263"
+        },
+        {
+          "name": "web conversion",
+          "passed": true,
+          "detail": "0.352941 vs 0.3529"
+        }
+      ]
+    },
+    {
+      "case_id": "experiment_activation",
+      "kind": "copilot",
+      "question": "How did the onboarding checklist experiment perform?",
+      "latency_ms": 59,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_experiment"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_experiment",
+          "passed": true,
+          "detail": "['get_experiment']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_experiment', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_experiment']"
+        },
+        {
+          "name": "metric present",
+          "passed": true,
+          "detail": "activation_7d"
+        },
+        {
+          "name": "control rate",
+          "passed": true,
+          "detail": "0.522651 vs 0.522651"
+        },
+        {
+          "name": "treatment rate",
+          "passed": true,
+          "detail": "0.626289 vs 0.626289"
+        },
+        {
+          "name": "p-value",
+          "passed": true,
+          "detail": "3.6595880900856334e-07 vs 3.6595880900856006e-07"
+        }
+      ]
+    },
+    {
+      "case_id": "experiment_purchase",
+      "kind": "copilot",
+      "question": "Did the onboarding checklist experiment improve purchase conversion?",
+      "latency_ms": 96,
+      "tool_calls": 2,
+      "tool_successes": 2,
+      "citations": [
+        "get_experiment",
+        "get_metric_series"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_experiment",
+          "passed": true,
+          "detail": "['get_experiment', 'get_metric_series']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_experiment', 'success'), ('get_metric_series', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_experiment', 'get_metric_series']"
+        },
+        {
+          "name": "metric present",
+          "passed": true,
+          "detail": "purchase_14d"
+        },
+        {
+          "name": "control rate",
+          "passed": true,
+          "detail": "0.05453 vs 0.05453"
+        },
+        {
+          "name": "treatment rate",
+          "passed": true,
+          "detail": "0.079038 vs 0.079038"
+        },
+        {
+          "name": "p-value",
+          "passed": true,
+          "detail": "0.01709130914368513 vs 0.017091309143685136"
+        }
+      ]
+    },
+    {
+      "case_id": "srm",
+      "kind": "copilot",
+      "question": "Was the onboarding checklist experiment assignment balanced?",
+      "latency_ms": 64,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_experiment"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_experiment",
+          "passed": true,
+          "detail": "['get_experiment']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_experiment', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_experiment']"
+        },
+        {
+          "name": "control count",
+          "passed": true,
+          "detail": "1192"
+        },
+        {
+          "name": "treatment count",
+          "passed": true,
+          "detail": "1164"
+        },
+        {
+          "name": "SRM interpretation",
+          "passed": true,
+          "detail": "Assignment counts are consistent with a 50/50 split."
+        }
+      ]
+    },
+    {
+      "case_id": "retention_channel",
+      "kind": "copilot",
+      "question": "Which acquisition channel has the weakest D7 retention?",
+      "latency_ms": 72,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_retention"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_retention",
+          "passed": true,
+          "detail": "['get_retention']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_retention', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_retention']"
+        },
+        {
+          "name": "channel groups returned",
+          "passed": true,
+          "detail": "['content', 'direct', 'email', 'organic_search', 'paid_social', 'partner', 'referral'] vs ['content', 'direct', 'email', 'organic_search', 'paid_social', 'partner', 'referral']"
+        },
+        {
+          "name": "weakest channel matches raw",
+          "passed": true,
+          "detail": "direct vs direct"
+        },
+        {
+          "name": "answer names weakest channel",
+          "passed": true,
+          "detail": "direct"
+        }
+      ]
+    },
+    {
+      "case_id": "retention_device",
+      "kind": "copilot",
+      "question": "What is weekly retention by device?",
+      "latency_ms": 51,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_retention"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_retention",
+          "passed": true,
+          "detail": "['get_retention']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_retention', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_retention']"
+        },
+        {
+          "name": "weekly device groups",
+          "passed": true,
+          "detail": "3 groups"
+        }
+      ]
+    },
+    {
+      "case_id": "segments",
+      "kind": "copilot",
+      "question": "How many users are in each rule-based segment?",
+      "latency_ms": 52,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_segments"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_segments",
+          "passed": true,
+          "detail": "['get_segments']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_segments', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_segments']"
+        },
+        {
+          "name": "segment set",
+          "passed": true,
+          "detail": "['active_free', 'at_risk', 'champions', 'dormant', 'low_engagement', 'new_engaged', 'other'] vs ['active_free', 'at_risk', 'champions', 'dormant', 'low_engagement', 'new_engaged', 'other']"
+        },
+        {
+          "name": "active_free users",
+          "passed": true,
+          "detail": "1748 vs 1748"
+        },
+        {
+          "name": "at_risk users",
+          "passed": true,
+          "detail": "156 vs 156"
+        },
+        {
+          "name": "champions users",
+          "passed": true,
+          "detail": "2 vs 2"
+        },
+        {
+          "name": "dormant users",
+          "passed": true,
+          "detail": "1043 vs 1043"
+        },
+        {
+          "name": "low_engagement users",
+          "passed": true,
+          "detail": "1843 vs 1843"
+        },
+        {
+          "name": "new_engaged users",
+          "passed": true,
+          "detail": "62 vs 62"
+        },
+        {
+          "name": "other users",
+          "passed": true,
+          "detail": "146 vs 146"
+        }
+      ]
+    },
+    {
+      "case_id": "anomalies",
+      "kind": "copilot",
+      "question": "What anomalies were detected since July?",
+      "latency_ms": 41,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_anomalies"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_anomalies",
+          "passed": true,
+          "detail": "['get_anomalies']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_anomalies', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_anomalies']"
+        },
+        {
+          "name": "three anomalies",
+          "passed": true,
+          "detail": "3"
+        },
+        {
+          "name": "checkout anomaly",
+          "passed": true,
+          "detail": "{'anomaly_id': 'anom_weekly_checkout_conversion_rate_2026-08-10', 'metric_key': 'checkout_conversion_rate', 'period_start': Timestamp('2026-08-10 00:00:00'), 'granularity': 'weekly', 'observed_value': 0.0, 'baseline_value': 0.388802, 'deviation': -0.388802, 'robust_z': -4.1648, 'severity': 'medium', 'method': 'robust z-score (median/MAD), 8 prior full weeks', 'sample_size': 37, 'supporting_json': '{\"baseline_points\": [0.285714, 0.325581, 0.5, 0.435897, 0.410256, 0.513514, 0.326087, 0.367347], \"mad\": 0.062967, \"threshold\": 3.0, \"numerator\": 0, \"denominator\": 37}'}"
+        },
+        {
+          "name": "registration anomaly",
+          "passed": true,
+          "detail": "{'anomaly_id': 'anom_daily_registrations_2026-09-15', 'metric_key': 'registrations', 'period_start': Timestamp('2026-09-15 00:00:00'), 'granularity': 'daily', 'observed_value': 74.0, 'baseline_value': 28.5, 'deviation': 45.5, 'robust_z': 12.2759, 'severity': 'critical', 'method': 'robust z-score (median/MAD), same-weekday baseline, 8 prior weeks', 'sample_size': 74, 'supporting_json': '{\"baseline_points\": [29.0, 25.0, 28.0, 37.0, 27.0, 27.0, 35.0, 32.0], \"mad\": 2.5, \"threshold\": 3.5}'}"
+        },
+        {
+          "name": "cancellation anomaly",
+          "passed": true,
+          "detail": "{'anomaly_id': 'anom_weekly_cancellations_2026-10-05', 'metric_key': 'cancellations', 'period_start': Timestamp('2026-10-05 00:00:00'), 'granularity': 'weekly', 'observed_value': 16.0, 'baseline_value': 2.0, 'deviation': 14.0, 'robust_z': 9.443, 'severity': 'critical', 'method': 'robust z-score (median/MAD), 8 prior full weeks', 'sample_size': 16, 'supporting_json': '{\"baseline_points\": [2.0, 4.0, 1.0, 3.0, 2.0, 4.0, 1.0, 2.0], \"mad\": 1.0, \"threshold\": 3.0}'}"
+        }
+      ]
+    },
+    {
+      "case_id": "features",
+      "kind": "copilot",
+      "question": "Which features have the highest adoption since August?",
+      "latency_ms": 55,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_feature_adoption"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_feature_adoption",
+          "passed": true,
+          "detail": "['get_feature_adoption']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_feature_adoption', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_feature_adoption']"
+        },
+        {
+          "name": "features returned",
+          "passed": true,
+          "detail": "10 features"
+        },
+        {
+          "name": "top feature",
+          "passed": true,
+          "detail": "{'feature_key': 'dashboards', 'feature_name': 'Dashboards', 'users': 3400, 'avg_adoption_rate': 0.203654, 'days': 91} vs {'feature_key': 'dashboards', 'feature_name': 'Dashboards', 'users': 3400, 'avg_adoption_rate': 0.2037}"
+        },
+        {
+          "name": "top feature user-days",
+          "passed": true,
+          "detail": "3400 vs 3400"
+        }
+      ]
+    },
+    {
+      "case_id": "forecast_scope",
+      "kind": "copilot",
+      "question": "What will revenue be next quarter?",
+      "latency_ms": 50,
+      "tool_calls": 1,
+      "tool_successes": 1,
+      "citations": [
+        "get_metric_series"
+      ],
+      "passed": true,
+      "checks": [
+        {
+          "name": "tool get_metric_series",
+          "passed": true,
+          "detail": "['get_metric_series']"
+        },
+        {
+          "name": "all tool calls successful",
+          "passed": true,
+          "detail": "[('get_metric_series', 'success')]"
+        },
+        {
+          "name": "citations present",
+          "passed": true,
+          "detail": "['get_metric_series']"
+        },
+        {
+          "name": "scope limitation stated",
+          "passed": true,
+          "detail": "Scope limitation: this MVP reports historical and current metrics from the synthetic dataset. It does not forecast futur"
+        }
+      ]
+    },
+    {
+      "case_id": "sql_registrations_by_channel",
+      "kind": "sql",
+      "question": "How many registrations were there by channel since July?",
+      "latency_ms": 73,
+      "tool_calls": 0,
+      "tool_successes": 0,
+      "citations": [],
+      "passed": true,
+      "checks": [
+        {
+          "name": "status",
+          "passed": true,
+          "detail": "success"
+        },
+        {
+          "name": "SQL generated",
+          "passed": true,
+          "detail": "SELECT acquisition_channel AS channel, COUNT(*) AS users FROM analytics.users WHERE registration_date BETWEEN CAST('2026"
+        },
+        {
+          "name": "SQL validated",
+          "passed": true,
+          "detail": "{'valid': True, 'sql': \"SELECT acquisition_channel AS channel, COUNT(*) AS users FROM analytics.users WHERE registration_date BETWEEN DATE '2026-07-01' AND DATE '2026-10-30' GROUP BY 1 ORDER BY users DESC\", 'normalized_sql': \"SELECT acquisition_channel AS channel, COUNT(*) AS users FROM analytics.users WHERE registration_date BETWEEN CAST('2026-07-01' AS DATE) AND CAST('2026-10-30' AS DATE) GROUP BY 1 ORDER BY users DESC\", 'errors': [], 'tables': ['users'], 'columns': ['acquisition_channel', 'registration_date', 'users'], 'joins': 0, 'subquery_depth': 0, 'ast_nodes': 29}"
+        },
+        {
+          "name": "SQL status",
+          "passed": true,
+          "detail": "success"
+        },
+        {
+          "name": "template",
+          "passed": true,
+          "detail": "registrations_by_channel"
+        },
+        {
+          "name": "channel counts",
+          "passed": true,
+          "detail": "{'organic_search': 898, 'paid_social': 740, 'referral': 578, 'content': 447, 'direct': 388, 'email': 364, 'partner': 298} vs {'content': 447, 'direct': 388, 'email': 364, 'organic_search': 898, 'paid_social': 740, 'partner': 298, 'referral': 578}"
+        }
+      ]
+    },
+    {
+      "case_id": "sql_experiment_results",
+      "kind": "sql",
+      "question": "Show experiment results",
+      "latency_ms": 13,
+      "tool_calls": 0,
+      "tool_successes": 0,
+      "citations": [],
+      "passed": true,
+      "checks": [
+        {
+          "name": "status",
+          "passed": true,
+          "detail": "success"
+        },
+        {
+          "name": "SQL generated",
+          "passed": true,
+          "detail": "SELECT r.experiment_id, r.metric_key, r.variant, r.successes, r.sample_size, r.rate, r.absolute_lift, r.relative_lift, r"
+        },
+        {
+          "name": "SQL validated",
+          "passed": true,
+          "detail": "{'valid': True, 'sql': 'SELECT r.experiment_id, r.metric_key, r.variant, r.successes, r.sample_size, r.rate, r.absolute_lift, r.relative_lift, r.ci_low, r.ci_high, r.p_value, r.significant FROM analytics.experiment_results r JOIN analytics.experiments e ON r.experiment_id = e.experiment_id ORDER BY r.metric_key, r.variant', 'normalized_sql': 'SELECT r.experiment_id, r.metric_key, r.variant, r.successes, r.sample_size, r.rate, r.absolute_lift, r.relative_lift, r.ci_low, r.ci_high, r.p_value, r.significant FROM analytics.experiment_results AS r JOIN analytics.experiments AS e ON r.experiment_id = e.experiment_id ORDER BY r.metric_key, r.variant', 'errors': [], 'tables': ['experiment_results', 'experiments'], 'columns': ['e.experiment_id', 'r.absolute_lift', 'r.ci_high', 'r.ci_low', 'r.experiment_id', 'r.metric_key', 'r.p_value', 'r.rate', 'r.relative_lift', 'r.sample_size', 'r.significant', 'r.successes', 'r.variant'], 'joins': 1, 'subquery_depth': 0, 'ast_nodes': 65}"
+        },
+        {
+          "name": "four result rows",
+          "passed": true,
+          "detail": "4"
+        },
+        {
+          "name": "activation_7d control rate",
+          "passed": true,
+          "detail": "0.522651 vs 0.522651"
+        },
+        {
+          "name": "activation_7d treatment rate",
+          "passed": true,
+          "detail": "0.626289 vs 0.626289"
+        },
+        {
+          "name": "purchase_14d control rate",
+          "passed": true,
+          "detail": "0.05453 vs 0.05453"
+        },
+        {
+          "name": "purchase_14d treatment rate",
+          "passed": true,
+          "detail": "0.079038 vs 0.079038"
+        }
+      ]
+    },
+    {
+      "case_id": "sql_checkout_by_device",
+      "kind": "sql",
+      "question": "What was checkout conversion by device in August?",
+      "latency_ms": 21,
+      "tool_calls": 0,
+      "tool_successes": 0,
+      "citations": [],
+      "passed": true,
+      "checks": [
+        {
+          "name": "status",
+          "passed": true,
+          "detail": "success"
+        },
+        {
+          "name": "SQL generated",
+          "passed": true,
+          "detail": "SELECT e.device, COUNT(*) AS checkouts, SUM(CASE WHEN NOT p.user_id IS NULL THEN 1 ELSE 0 END) AS conversions, ROUND(SUM"
+        },
+        {
+          "name": "SQL validated",
+          "passed": true,
+          "detail": "{'valid': True, 'sql': \"SELECT e.device, COUNT(*) AS checkouts, SUM(CASE WHEN p.user_id IS NOT NULL THEN 1 ELSE 0 END) AS conversions, ROUND(SUM(CASE WHEN p.user_id IS NOT NULL THEN 1 ELSE 0 END) * 1.0 / NULLIF(COUNT(*), 0), 4) AS conversion_rate FROM analytics.events e LEFT JOIN analytics.events p ON e.user_id = p.user_id AND p.event_name = 'purchase_completed' AND p.event_timestamp >= e.event_timestamp AND p.event_timestamp <= e.event_timestamp + INTERVAL 7 DAY WHERE e.event_name = 'checkout_started' AND e.event_date BETWEEN DATE '2026-08-01' AND DATE '2026-08-31' GROUP BY 1 ORDER BY conversion_rate\", 'normalized_sql': \"SELECT e.device, COUNT(*) AS checkouts, SUM(CASE WHEN NOT p.user_id IS NULL THEN 1 ELSE 0 END) AS conversions, ROUND(SUM(CASE WHEN NOT p.user_id IS NULL THEN 1 ELSE 0 END) * 1.0 / NULLIF(COUNT(*), 0), 4) AS conversion_rate FROM analytics.events AS e LEFT JOIN analytics.events AS p ON e.user_id = p.user_id AND p.event_name = 'purchase_completed' AND p.event_timestamp >= e.event_timestamp AND p.event_timestamp <= e.event_timestamp + INTERVAL '7' DAY WHERE e.event_name = 'checkout_started' AND e.event_date BETWEEN CAST('2026-08-01' AS DATE) AND CAST('2026-08-31' AS DATE) GROUP BY 1 ORDER BY conversion_rate\", 'errors': [], 'tables': ['events'], 'columns': ['conversion_rate', 'e.device', 'e.event_date', 'e.event_name', 'e.event_timestamp', 'e.user_id', 'p.event_name', 'p.event_timestamp', 'p.user_id'], 'joins': 1, 'subquery_depth': 0, 'ast_nodes': 111}"
+        },
+        {
+          "name": "device set",
+          "passed": true,
+          "detail": "['android', 'ios', 'unknown', 'web'] vs ['android', 'ios', 'unknown', 'web']"
+        },
+        {
+          "name": "android rate",
+          "passed": true,
+          "detail": "0.2667 vs 0.2667"
+        },
+        {
+          "name": "ios rate",
+          "passed": true,
+          "detail": "0.3298 vs 0.3298"
+        },
+        {
+          "name": "unknown rate",
+          "passed": true,
+          "detail": "0.3333 vs 0.3333"
+        },
+        {
+          "name": "web rate",
+          "passed": true,
+          "detail": "0.3529 vs 0.3529"
+        }
+      ]
+    },
+    {
+      "case_id": "sql_paid_social_retention",
+      "kind": "sql",
+      "question": "Show paid-social retention since August",
+      "latency_ms": 15,
+      "tool_calls": 0,
+      "tool_successes": 0,
+      "citations": [],
+      "passed": true,
+      "checks": [
+        {
+          "name": "status",
+          "passed": true,
+          "detail": "success"
+        },
+        {
+          "name": "SQL generated",
+          "passed": true,
+          "detail": "SELECT cohort_date, period_days, cohort_size, retained_users, retention_rate FROM analytics.retention_by_dimension WHERE"
+        },
+        {
+          "name": "SQL validated",
+          "passed": true,
+          "detail": "{'valid': True, 'sql': \"SELECT cohort_date, period_days, cohort_size, retained_users, retention_rate FROM analytics.retention_by_dimension WHERE dimension_type = 'channel' AND dimension_value = 'paid_social' AND period_days IN (1, 7, 14, 30) AND cohort_date BETWEEN DATE '2026-08-01' AND DATE '2026-10-30' ORDER BY cohort_date, period_days\", 'normalized_sql': \"SELECT cohort_date, period_days, cohort_size, retained_users, retention_rate FROM analytics.retention_by_dimension WHERE dimension_type = 'channel' AND dimension_value = 'paid_social' AND period_days IN (1, 7, 14, 30) AND cohort_date BETWEEN CAST('2026-08-01' AS DATE) AND CAST('2026-10-30' AS DATE) ORDER BY cohort_date, period_days\", 'errors': [], 'tables': ['retention_by_dimension'], 'columns': ['cohort_date', 'cohort_size', 'dimension_type', 'dimension_value', 'period_days', 'retained_users', 'retention_rate'], 'joins': 0, 'subquery_depth': 0, 'ast_nodes': 50}"
+        },
+        {
+          "name": "D7 rows returned",
+          "passed": true,
+          "detail": "91 rows"
+        },
+        {
+          "name": "D7 weighted rate",
+          "passed": true,
+          "detail": "0.0782 vs 0.078203"
+        }
+      ]
+    },
+    {
+      "case_id": "sql_cancellations_by_plan",
+      "kind": "sql",
+      "question": "Show cancellations by plan in October",
+      "latency_ms": 11,
+      "tool_calls": 0,
+      "tool_successes": 0,
+      "citations": [],
+      "passed": true,
+      "checks": [
+        {
+          "name": "status",
+          "passed": true,
+          "detail": "success"
+        },
+        {
+          "name": "SQL generated",
+          "passed": true,
+          "detail": "SELECT s.plan, COUNT(*) AS cancellations, ROUND(SUM(s.mrr), 2) AS lost_mrr FROM analytics.subscriptions AS s WHERE s.can"
+        },
+        {
+          "name": "SQL validated",
+          "passed": true,
+          "detail": "{'valid': True, 'sql': \"SELECT s.plan, COUNT(*) AS cancellations, ROUND(SUM(s.mrr), 2) AS lost_mrr FROM analytics.subscriptions s WHERE s.cancelled_date BETWEEN DATE '2026-10-01' AND DATE '2026-10-30' GROUP BY 1 ORDER BY cancellations DESC\", 'normalized_sql': \"SELECT s.plan, COUNT(*) AS cancellations, ROUND(SUM(s.mrr), 2) AS lost_mrr FROM analytics.subscriptions AS s WHERE s.cancelled_date BETWEEN CAST('2026-10-01' AS DATE) AND CAST('2026-10-30' AS DATE) GROUP BY 1 ORDER BY cancellations DESC\", 'errors': [], 'tables': ['subscriptions'], 'columns': ['cancellations', 's.cancelled_date', 's.mrr', 's.plan'], 'joins': 0, 'subquery_depth': 0, 'ast_nodes': 39}"
+        },
+        {
+          "name": "plan set",
+          "passed": true,
+          "detail": "['enterprise', 'growth', 'starter'] vs ['enterprise', 'growth', 'starter']"
+        },
+        {
+          "name": "cancellation counts",
+          "passed": true,
+          "detail": "{'starter': {'cancellations': 16, 'lost_mrr': 464.0}, 'growth': {'cancellations': 12, 'lost_mrr': 1188.0}, 'enterprise': {'cancellations': 4, 'lost_mrr': 1996.0}} vs {'enterprise': {'cancellations': 4, 'lost_mrr': 1996.0}, 'growth': {'cancellations': 12, 'lost_mrr': 1188.0}, 'starter': {'cancellations': 16, 'lost_mrr': 464.0}}"
+        }
+      ]
+    },
+    {
+      "case_id": "sql_feature_adoption",
+      "kind": "sql",
+      "question": "What are the feature adoption numbers since August?",
+      "latency_ms": 17,
+      "tool_calls": 0,
+      "tool_successes": 0,
+      "citations": [],
+      "passed": true,
+      "checks": [
+        {
+          "name": "status",
+          "passed": true,
+          "detail": "success"
+        },
+        {
+          "name": "SQL generated",
+          "passed": true,
+          "detail": "SELECT f.feature_name, SUM(a.users) AS users, ROUND(AVG(a.adoption_rate), 4) AS avg_adoption_rate FROM analytics.feature"
+        },
+        {
+          "name": "SQL validated",
+          "passed": true,
+          "detail": "{'valid': True, 'sql': \"SELECT f.feature_name, SUM(a.users) AS users, ROUND(AVG(a.adoption_rate), 4) AS avg_adoption_rate FROM analytics.feature_adoption_daily a JOIN analytics.features f ON a.feature_key = f.feature_key WHERE a.metric_date BETWEEN DATE '2026-08-01' AND DATE '2026-10-30' GROUP BY 1 ORDER BY users DESC\", 'normalized_sql': \"SELECT f.feature_name, SUM(a.users) AS users, ROUND(AVG(a.adoption_rate), 4) AS avg_adoption_rate FROM analytics.feature_adoption_daily AS a JOIN analytics.features AS f ON a.feature_key = f.feature_key WHERE a.metric_date BETWEEN CAST('2026-08-01' AS DATE) AND CAST('2026-10-30' AS DATE) GROUP BY 1 ORDER BY users DESC\", 'errors': [], 'tables': ['feature_adoption_daily', 'features'], 'columns': ['a.adoption_rate', 'a.feature_key', 'a.metric_date', 'a.users', 'f.feature_key', 'f.feature_name', 'users'], 'joins': 1, 'subquery_depth': 0, 'ast_nodes': 54}"
+        },
+        {
+          "name": "top feature",
+          "passed": true,
+          "detail": "{'feature_name': 'Dashboards', 'users': 3400.0, 'avg_adoption_rate': 0.2037} vs {'feature_key': 'dashboards', 'feature_name': 'Dashboards', 'users': 3400, 'avg_adoption_rate': 0.2037}"
+        },
+        {
+          "name": "top feature user-days",
+          "passed": true,
+          "detail": "3400.0 vs 3400"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+line-length = 120
+target-version = "py313"
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+# Long SQL strings are more readable unwrapped; line length is handled by the formatter.
+ignore = ["B008", "SIM108", "E501"]
+
+[lint.isort]
+known-first-party = ["app"]

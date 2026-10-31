@@ -1,0 +1,17 @@
+fastapi>=0.116,<0.117
+uvicorn[standard]>=0.35,<0.36
+python-multipart>=0.0.9,<0.1
+pydantic>=2.11,<3
+pydantic-settings>=2.10,<3
+python-dotenv>=1.0,<2
+
+duckdb==1.5.6
+pandas>=2.2,<3
+numpy>=2.0,<3
+scipy>=1.15,<2
+statsmodels==0.14.6
+scikit-learn>=1.6,<2
+
+sqlglot>=30.20,<31
+httpx>=0.28,<0.29
+jinja2>=3.1,<4

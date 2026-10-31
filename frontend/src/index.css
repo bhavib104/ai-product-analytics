@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-canvas: #f4f6fb;
+  --color-panel: #ffffff;
+  --color-ink: #101828;
+  --color-muted: #667085;
+  --color-line: #e4e7ec;
+  --color-brand: #4f46e5;
+  --color-brand-soft: #eef2ff;
+  --color-mint: #0f9f8f;
+  --color-mint-soft: #e7f7f4;
+  --color-amber: #b54708;
+  --color-amber-soft: #fff6e8;
+  --color-rose: #c01048;
+  --color-rose-soft: #fff1f3;
+  --color-navy: #0b1220;
+  --color-navy-soft: #151f33;
+}
+
+:root {
+  color: var(--color-ink);
+  background: var(--color-canvas);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 82% -10%, rgba(79, 70, 229, 0.09), transparent 38%),
+    radial-gradient(circle at 0% 100%, rgba(15, 159, 143, 0.06), transparent 35%),
+    var(--color-canvas);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+::selection {
+  background: rgba(79, 70, 229, 0.18);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  border: 2px solid var(--color-canvas);
+}
+
+.card {
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  border-radius: 18px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03), 0 10px 30px -18px rgba(16, 24, 40, 0.18);
+}
+
+.card-hover {
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.card-hover:hover {
+  border-color: #c7d0dd;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 18px 40px -22px rgba(16, 24, 40, 0.28);
+  transform: translateY(-1px);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 9px 11px;
+  color: #aab6c8;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(79, 70, 229, 0.38), rgba(79, 70, 229, 0.12));
+  box-shadow: inset 2px 0 0 #8b83ff;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #edf0f5;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 240ms ease both;
+}
+
+.recharts-default-tooltip {
+  border-radius: 10px !important;
+  border: 1px solid var(--color-line) !important;
+  box-shadow: 0 12px 28px -14px rgba(16, 24, 40, 0.3) !important;
+  font-size: 12px !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: #667085;
+  font-size: 11px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

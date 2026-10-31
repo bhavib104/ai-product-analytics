@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Local data / secrets
+backend/data/
+backend/.env
+.env
+*.duckdb
+*.duckdb.wal
+*.db
+*.db-shm
+*.db-wal
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Evaluation artifacts (generated)
+eval/results/
