@@ -15,6 +15,7 @@ python -m venv .venv
 
 ## Run the frontend
 
+
 ```powershell
 cd frontend
 npm install
